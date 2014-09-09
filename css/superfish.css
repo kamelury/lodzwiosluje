@@ -1,0 +1,329 @@
+/*** ESSENTIAL STYLES ***/
+nav{
+	position:fixed;
+	top:56px;
+	left:0;
+	width:100%;
+	z-index:999;
+}
+#menu_container{
+	background-color:#111;
+}
+.sf-menu {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position:relative;
+}
+ul.sf-menu li.normal_drop_down ul{
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+.sf-menu li.normal_drop_down {
+	position: relative;
+}
+ul.sf-menu li ul {
+	position: absolute;
+	display: none;
+	top: 100%;
+	left: 0;
+	z-index: 99;
+}
+.sf-menu > li {
+	float: left;
+}
+.sf-menu li:hover > ul,
+.sf-menu li.sfHover > ul {
+	display: block;
+}
+.sf-menu a {
+	display: block;
+	position:relative;
+}
+.sf-menu ul ul {
+	top: 0;
+	left: 100%;
+}
+
+/*** DEMO SKIN ***/
+.sf-menu {
+	margin-bottom: 0;
+	text-transform:uppercase;
+	font-size:12px;
+	font-weight:600;
+}
+.sf-menu ul {
+	min-width: 12em; /* allow long menu items to determine submenu width */
+	*width: 12em; /* no auto sub width for IE7, see white-space comment below */
+}
+.sf-menu a {
+	padding: 0.8em 1.8em;
+	text-decoration: none;
+	zoom: 1; /* IE7 */
+	color: #fff;
+}
+.sf-menu li {
+	background: ;
+	white-space: nowrap; /* no need for Supersubs plugin */
+	*white-space: normal; /* ...unless you support IE7 (let it wrap) */
+	-webkit-transition: background .2s;
+	transition: background .2s;
+}
+ul.sf-menu li a{
+	color:#fff;
+}
+ul.sf-menu li a:hover{
+	color:#fff;
+	outline:none;
+}
+.sf-menu ul li {
+	background: #00aeef;
+	-moz-box-shadow: 1px 3px 3px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 1px 3px 3px rgba(0,0,0,0.3);
+	box-shadow: 1px 3px 3px rgba(0,0,0,0.3);
+	min-width:200px;
+}
+.sf-menu ul li a {
+	background: #222;
+	min-width:200px;
+	padding: 0.9em 1.8em;
+}
+.sf-menu ul li a:hover {
+	background: #d71921;
+	color:#fff;
+		outline:none;
+}
+.sf-menu ul ul li {
+	background: #d71921;
+}
+.sf-menu li:hover,
+.sf-menu li.sfHover {
+	background: #d71921;
+	/* only transition out, not in */
+	-webkit-transition: none;
+	transition: none;
+	color:#fff;
+}
+
+/*** arrows (for all except IE7) **/
+.sf-arrows .sf-with-ul {
+	padding-right: 2.5em;
+	*padding-right: 1em; /* no CSS arrows for IE7 (lack pseudo-elements) */
+}
+/* styling for both css and generated arrows */
+.sf-arrows .sf-with-ul:after {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 1em;
+	margin-top: -3px;
+	height: 0;
+	width: 0;
+	/* order of following 3 rules important for fallbacks to work */
+	border: 5px solid transparent;
+	border-top-color: #fff; /* edit this to suit design (no rgba in IE8) */
+	border-top-color: rgba(255,255,255,.5);
+}
+.sf-arrows > li > .sf-with-ul:focus:after,
+.sf-arrows > li:hover > .sf-with-ul:after,
+.sf-arrows > .sfHover > .sf-with-ul:after {
+	border-top-color: #fff; /* IE8 fallback colour */
+}
+/* styling for right-facing arrows */
+.sf-arrows ul .sf-with-ul:after {
+	margin-top: -5px;
+	margin-right: -3px;
+	border-color: transparent;
+	border-left-color: #d71921; /* edit this to suit design (no rgba in IE8) */
+	border-left-color: rgba(255,255,255,.5);
+}
+.sf-arrows ul li > .sf-with-ul:focus:after,
+.sf-arrows ul li:hover > .sf-with-ul:after,
+.sf-arrows ul .sfHover > .sf-with-ul:after {
+	border-left-color: white;
+}
+#mobnav-btn:before {
+    display: none;
+	font-family: "fontello";
+	 content: "\e874";
+    font-size: 24px;
+	width:24px;
+	height:24px;
+    color: #fff;
+	cursor:pointer;
+}
+.mobnav-subarrow {
+    display: none;
+}
+.sf-menu .sf-mega {
+  position: absolute;
+  display: none;
+  top: 38px;
+  border-top: 2px solid #111;
+  left: 0;
+  z-index: 99999;
+ background: #222;
+  padding: 30px;
+  box-sizing: border-box;
+  width: 100%;
+  -moz-box-shadow: 1px 3px 3px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 1px 3px 3px rgba(0,0,0,0.3);
+	box-shadow: 1px 3px 3px rgba(0,0,0,0.3);
+}
+.sf-menu .sf-mega ul.mega_submenu{
+	display:block;
+	float:none;
+	width:100%;
+	position:inherit;
+	padding:0;
+	margin:0;
+	list-style:none;
+}
+.sf-menu .sf-mega ul.mega_submenu li{
+	text-transform:none;
+	font-size:14px;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.sf-menu .sf-mega ul.mega_submenu li a{
+	color:#fff;
+	padding:10px;
+	border-bottom: 1px dotted #555;
+}
+.sf-menu .sf-mega ul.mega_submenu li a:hover{
+	color:#fff;
+}
+.sf-menu .sf-mega ul.mega_submenu li:last-child{
+	border-bottom: none;
+}
+ul.mega_submenu li i{
+	margin-left:0;
+	padding-left:0;
+	text-align:left;
+}
+.sf-mega h5{
+	border-bottom:1px solid #999;
+	padding-bottom:8px;
+	margin-bottom:0;
+	font-weight:bold;
+	color:#fff;
+}
+.sf-mega p{
+	white-space:normal;
+	text-transform:none;
+	font-size:14px;
+}
+
+a.pic_offer{
+	position:relative;
+	width:100%;
+	height:100%;
+	top:0;
+	padding:0;
+	margin:0;
+	left:0;
+}
+.pic_offer strong{
+	position:absolute;
+	bottom:0px;
+	left:0;
+	font-family:"Helvetica Neue", Arial;
+	font-size:20px;
+	font-weight:bold;
+	background-color:#111;
+	padding:5px 10px;
+}
+
+
+
+@media (max-width: 767px) {
+	nav{
+	position:absolute;
+	top:56px;
+	left:0;
+	width:100%;
+	z-index:9999;
+}
+
+#mobnav-btn  {
+		   position:absolute;
+		   top:-38px;
+		   right:20px;
+		   width:20px;
+	      height:20px;
+	      cursor:pointer;
+    }
+   #mobnav-btn:before  {
+        display: block;
+    }
+    .mobnav-subarrow {
+        display: block;
+        height: 47px;
+        width: 100%;
+        background-position: top left!important;
+        position: absolute;
+        top: 0;
+        right: 0;
+        cursor: pointer;
+        -webkit-transition: all .1s ease-in-out;
+        -moz-transition: all .1s ease-in-out;
+        -ms-transition: all .1s ease-in-out;
+        -o-transition: all .1s ease-in-out;
+        transition: all .1s ease-in-out;
+    }
+.sf-menu .sf-mega {
+  padding: 10px;
+  border-top:none;
+}	
+	
+	/* styling for both css and generated arrows */
+	.sf-arrows .sf-with-ul:after {
+	top: 50%;
+	right: 20px;
+
+}
+    .sf-menu {
+        width: 100%!important;
+        display: none;
+    }
+    .sf-menu.xactive {
+        display: block!important;
+    }
+    .sf-menu li {
+        float: none!important;
+        display: block!important;
+        width: 100%!important;
+    }
+    .sf-menu li a {
+        float: none!important;
+    }
+    .sf-menu ul {
+        position:static!important;
+        display: none!important;
+    }
+	.sf-mega {
+        position:static!important;
+        display: none!important;
+
+    }
+    .xpopdrop ul {
+        display: block!important;
+    }
+	.xpopdrop .sf-mega {
+        display: block!important;	
+    }	
+	.mega_drop_down{
+		position:relative;	
+}
+.sf-menu ul li, .sf-menu .sf-mega {
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+.sf-menu .sf-mega ul.mega_submenu{
+	margin-bottom:25px;
+}
+
+}

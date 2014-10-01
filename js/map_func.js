@@ -5,9 +5,9 @@ function initialize() {
 "use strict";
 
   var mapOptions = {
-    zoom: 13,
+    zoom: 20,
 	scrollwheel: false,
-    center: new google.maps.LatLng(24.583849,-81.804886),
+    center: new google.maps.LatLng(51.777688, 19.463990),
     mapTypeId: google.maps.MapTypeId.TERRAIN
   };
 
@@ -16,24 +16,21 @@ function initialize() {
   var map = new google.maps.Map(document.getElementById('map_canvas'),
       mapOptions);
 
-  // Define the LatLng coordinates for the polygon's path.
-  var triangleCoords = [
-    new google.maps.LatLng(24.584005,-81.814671),
-    new google.maps.LatLng(24.589937,-81.800766),
-    new google.maps.LatLng(24.573077,-81.800594)
-  ];
+  var marker = ['Miejski Punkt Kultury Prexer-UŁ', 51.777688, 19.463990];
 
-  // Construct the polygon.
-  bermudaTriangle = new google.maps.Polygon({
-    paths: triangleCoords,
-    strokeColor: '#FF0000',
-    strokeOpacity: 0.8,
-    strokeWeight: 2,
-    fillColor: '#FF0000',
-    fillOpacity: 0.35
+  var position = new google.maps.LatLng(marker[1], marker[2]);
+  marker = new google.maps.Marker({
+      position: position,
+      map: map,
+      title: marker[0]
   });
-
-  bermudaTriangle.setMap(map);
+    
+  google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+          infoWindow.setContent(infoWindowContent[i][0]);
+          infoWindow.open(map, marker);
+      }
+  })(marker, i));
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
